@@ -21,13 +21,13 @@ import java.util.List;
  * @since 2020-10-30
  */
 @RestController
-@RequestMapping("/admin/product/getCategory1")
+@RequestMapping("/admin/product/")
 public class BaseCategory1Controller {
 
     @Autowired
     private BaseCategory1Service category1Service;
 
-    @GetMapping()
+    @GetMapping("/getCategory1")
     public Result<List<BaseCategory1>> getCategory1(){
         List<BaseCategory1> list = category1Service.list(null);
 
