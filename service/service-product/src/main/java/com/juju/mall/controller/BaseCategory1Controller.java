@@ -5,6 +5,7 @@ import com.juju.mall.entity.BaseCategory1;
 import com.juju.mall.result.Result;
 import com.juju.mall.service.BaseCategory1Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,6 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/product/")
+@CrossOrigin
 public class BaseCategory1Controller {
 
     @Autowired

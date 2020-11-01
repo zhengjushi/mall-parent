@@ -12,18 +12,18 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 二级分类表
+ * 属性值表
  * </p>
  *
  * @author juju
- * @since 2020-10-30
+ * @since 2020-10-31
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("base_category2")
-@ApiModel(value="BaseCategory2对象", description="二级分类表")
-public class BaseCategory2 implements Serializable {
+@TableName("base_attr_value")
+@ApiModel(value="BaseAttrValue对象", description="属性值表")
+public class BaseAttrValue implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,11 +31,11 @@ public class BaseCategory2 implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "二级分类名称")
-    private String name;
+    @ApiModelProperty(value = "属性值名称")
+    private String valueName;
 
-    @ApiModelProperty(value = "一级分类编号")
-    private Long category1Id;
+    @ApiModelProperty(value = "属性id")
+    private Long attrId;
 
 
 }

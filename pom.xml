@@ -7,6 +7,7 @@
         <module>common</module>
         <module>service</module>
         <module>web</module>
+        <module>model</module>
     </modules>
 
     <parent>

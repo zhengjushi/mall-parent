@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.juju.mall.mapper.BaseAttrInfoMapper">
+
+    <resultMap id="BaseAttrInfoMap" type="com.juju.mall.entity.BaseAttrInfo">
+        <id column="id" property="id"></id>
+        <result column="attr_name" property="attrName"></result>
+        <result column="category_id" property="categoryId"></result>
+        <result column="category_level" property="categoryLevel"></result>
+        <collection property="attrValueList" column="id" ofType="com.juju.mall.entity.BaseAttrValue" select="com.juju.mall.mapper.BaseAttrValueMapper.getAttrValueList"></collection>
+    </resultMap>
+
+    <select id="selectAttrS" resultMap="BaseAttrInfoMap">
+        select * from base_attr_info bai where
+        bai.category_id = #{categoryId}
+    </select>
+
+</mapper>

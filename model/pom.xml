@@ -3,23 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>service</artifactId>
+        <artifactId>mall-parent</artifactId>
         <groupId>com.juju.mall</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service-product</artifactId>
+    <artifactId>model</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-            <version>2.0</version>
-        </dependency>
-        <dependency>
             <groupId>com.juju.mall</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>serviec-util</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>

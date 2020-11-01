@@ -2,14 +2,12 @@ package com.juju.mall.controller;
 
 
 import com.juju.mall.entity.BaseAttrInfo;
+import com.juju.mall.entity.BaseAttrValue;
+import com.juju.mall.response.AttrInfoVO;
 import com.juju.mall.result.Result;
 import com.juju.mall.service.BaseAttrInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +21,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/product")
+@CrossOrigin
 public class BaseAttrInfoController {
 
     @Autowired
@@ -34,6 +33,14 @@ public class BaseAttrInfoController {
                                                    @PathVariable("category3Id")String category3Id){
         List<BaseAttrInfo> list =  attrInfoService.attrInfoList(category1Id,category2Id,category3Id);
         return Result.ok(list);
+    }
+
+
+    @PostMapping("saveAttrInfo")
+    public Result<String> saveAttrInfo(@RequestBody BaseAttrInfo baseAttrInfo){
+        System.out.println(baseAttrInfo);
+        attrInfoService.saveAttrInfo(baseAttrInfo);
+        return Result.ok();
     }
 
 }

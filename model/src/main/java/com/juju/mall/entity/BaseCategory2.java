@@ -1,18 +1,19 @@
 package com.juju.mall.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+
 /**
  * <p>
- * 一级分类表
+ * 二级分类表
  * </p>
  *
  * @author juju
@@ -21,9 +22,9 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("base_category1")
-@ApiModel(value="BaseCategory1对象", description="一级分类表")
-public class BaseCategory1 implements Serializable {
+@TableName("base_category2")
+@ApiModel(value="BaseCategory2对象", description="二级分类表")
+public class BaseCategory2 implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,8 +32,11 @@ public class BaseCategory1 implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "分类名称")
+    @ApiModelProperty(value = "二级分类名称")
     private String name;
+
+    @ApiModelProperty(value = "一级分类编号")
+    private Long category1Id;
 
 
 }

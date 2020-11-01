@@ -2,6 +2,7 @@ package com.juju.mall.service;
 
 import com.juju.mall.entity.BaseAttrInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.juju.mall.response.AttrInfoVO;
 
 import java.util.List;
 
@@ -17,4 +18,5 @@ public interface BaseAttrInfoService extends IService<BaseAttrInfo> {
 
     List<BaseAttrInfo> attrInfoList(String category1Id, String category2Id, String category3Id);
 
+    void saveAttrInfo(BaseAttrInfo baseAttrInfo);
 }

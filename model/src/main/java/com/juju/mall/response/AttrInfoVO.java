@@ -1,29 +1,24 @@
-package com.juju.mall.entity;
+package com.juju.mall.response;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.juju.mall.entity.BaseAttrValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-/**
- * <p>
- * 属性表
- * </p>
- *
- * @author juju
- * @since 2020-10-30
- */
+import java.io.Serializable;
+import java.util.List;
+
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("base_attr_info")
 @ApiModel(value="BaseAttrInfo对象", description="属性表")
-public class BaseAttrInfo implements Serializable {
+public class AttrInfoVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -40,5 +35,6 @@ public class BaseAttrInfo implements Serializable {
     @ApiModelProperty(value = "分类层级")
     private Integer categoryLevel;
 
-
+    @ApiModelProperty(value = "属性值列表")
+    private List<BaseAttrValue> attrValueList;
 }

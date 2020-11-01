@@ -2,6 +2,9 @@ package com.juju.mall.mapper;
 
 import com.juju.mall.entity.BaseAttrInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.juju.mall.response.AttrInfoVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2020-10-30
  */
 public interface BaseAttrInfoMapper extends BaseMapper<BaseAttrInfo> {
+
+    List<BaseAttrInfo> selectAttrS(String categoryId);
 
 }
