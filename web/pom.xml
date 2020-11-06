@@ -12,8 +12,16 @@
     <artifactId>web</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>untitled</module>
+        <module>web-all</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.juju.mall</groupId>
+            <artifactId>web-util</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
