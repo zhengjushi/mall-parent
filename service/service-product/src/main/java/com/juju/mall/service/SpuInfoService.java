@@ -12,5 +12,5 @@ public interface SpuInfoService extends IService<SpuInfo> {
 
     void saveSpuInfo(SpuInfo spuInfo);
 
-    List<SpuSaleAttr> getSpuSaleAttrs(Long spuId);
+    List<SpuSaleAttr> getSpuSaleAttrs(Long spuId, Long skuId);
 }

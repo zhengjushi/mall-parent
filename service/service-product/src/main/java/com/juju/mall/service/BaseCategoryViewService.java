@@ -1,8 +1,11 @@
 package com.juju.mall.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.juju.mall.entity.BaseCategory3;
 import com.juju.mall.entity.BaseCategoryView;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,5 +18,7 @@ import com.juju.mall.entity.BaseCategoryView;
 public interface BaseCategoryViewService extends IService<BaseCategoryView> {
 
     BaseCategoryView getCategoryView(Long category3Id);
+
+    List<JSONObject> categoryList();
 
 }

@@ -9,4 +9,5 @@ public interface SpuSaleAttrService extends IService<SpuSaleAttr> {
 
     List<SpuSaleAttr> spuSaleAttrList(String spuId);
 
+    List<SpuSaleAttr> selectSpuSaleAttrListCheckBySku(Long spuId, Long skuId);
 }

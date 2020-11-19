@@ -3,6 +3,7 @@ package com.juju.mall.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.juju.mall.entity.SkuInfo;
+import com.juju.mall.list.client.ListFeignClient;
 import com.juju.mall.result.Result;
 import com.juju.mall.service.SkuInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class SkuInfoController {
 
     @Autowired
     private SkuInfoService skuInfoService;
+
+    @Autowired
+    private ListFeignClient listFeignClient;
 
     @PostMapping("saveSkuInfo")
     public Result saveSkuInfo(@RequestBody SkuInfo skuInfo){
@@ -38,6 +42,8 @@ public class SkuInfoController {
         SkuInfo skuInfo = skuInfoService.getById(skuId);
         skuInfo.setIsSale(1);
         skuInfoService.updateById(skuInfo);
+        //同步到搜索引擎
+        listFeignClient.onSale(skuId);
         return Result.ok();
     }
 
@@ -46,6 +52,8 @@ public class SkuInfoController {
         SkuInfo skuInfo = skuInfoService.getById(skuId);
         skuInfo.setIsSale(0);
         skuInfoService.updateById(skuInfo);
+        //同步到搜索引擎
+        listFeignClient.cancelSale(skuId);
         return Result.ok();
     }
 }

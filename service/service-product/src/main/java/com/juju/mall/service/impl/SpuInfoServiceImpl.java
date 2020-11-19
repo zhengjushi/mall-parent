@@ -66,18 +66,11 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoMapper, SpuInfo> impl
         spuImageService.saveBatch(spuImageList);
     }
 
+
+
     @Override
-    public List<SpuSaleAttr> getSpuSaleAttrs(Long spuId) {
-        QueryWrapper<SpuSaleAttr> wrapper = new QueryWrapper<>();
-        wrapper.eq("spu_id",spuId);
-        List<SpuSaleAttr> spuSaleAttrs = spuSaleAttrService.list(wrapper);
-        for (SpuSaleAttr spuSaleAttr : spuSaleAttrs) {
-            QueryWrapper<SpuSaleAttrValue> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("spu_id",spuId);
-            queryWrapper.eq("base_sale_attr_id",spuSaleAttr.getBaseSaleAttrId());
-            List<SpuSaleAttrValue> list = spuSaleAttrValueService.list(queryWrapper);
-            spuSaleAttr.setSpuSaleAttrValueList(list);
-        }
+    public List<SpuSaleAttr> getSpuSaleAttrs(Long spuId, Long skuId) {
+        List<SpuSaleAttr> spuSaleAttrs =  spuSaleAttrService.selectSpuSaleAttrListCheckBySku(spuId,skuId);
         return spuSaleAttrs;
     }
 }

@@ -12,4 +12,5 @@ public interface ItemFeignClient {
     @RequestMapping("api/item/getItem/{skuId}")
     Map<String,Object> getItem(@PathVariable("skuId") String skuId);
 
+
 }

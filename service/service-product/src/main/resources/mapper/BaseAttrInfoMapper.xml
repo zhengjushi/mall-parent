@@ -7,12 +7,31 @@
         <result column="attr_name" property="attrName"></result>
         <result column="category_id" property="categoryId"></result>
         <result column="category_level" property="categoryLevel"></result>
-        <collection property="attrValueList" column="id" ofType="com.juju.mall.entity.BaseAttrValue" select="com.juju.mall.mapper.BaseAttrValueMapper.getAttrValueList"></collection>
+        <collection property="attrValueList" column="id" ofType="com.juju.mall.entity.BaseAttrValue"
+                    select="com.juju.mall.mapper.BaseAttrValueMapper.getAttrValueList"></collection>
     </resultMap>
 
     <select id="selectAttrS" resultMap="BaseAttrInfoMap">
         select * from base_attr_info bai where
         bai.category_id = #{categoryId}
     </select>
+    <select id="selectBaseAttrInfoListBySkuId" resultMap="selectBaseAttrInfoListBySkuIdMap">
+        SELECT
+            bai.id,
+            bai.attr_name,
+            bai.category_id,
+            bai.category_level,
+            bav.id attr_value_id,
+            bav.value_name AS attr_value,
+            bav.attr_id
+            FROM
+                base_attr_info bai
+                INNER JOIN base_attr_value bav ON bai.id = bav.attr_id
+                INNER JOIN sku_attr_value sav ON sav.value_id = bav.id
+            WHERE
+                sav.sku_id = #{skuId}
+    </select>
+
+    <resultMap id="selectBaseAttrInfoListBySkuIdMap" type="com.juju.mall.list.SearchAttr" autoMapping="true"></resultMap>
 
 </mapper>

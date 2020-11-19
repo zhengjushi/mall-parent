@@ -19,7 +19,7 @@ public class ItemApiController {
     @GetMapping("getItem/{skuId}")
     Map<String,Object> getItem(@PathVariable("skuId") String skuId){
         Map<String,Object> map = itemService.getItem(skuId);
-        System.out.println("这是map："+map);
+        //System.out.println("这是map："+map);
         return map;
     }
 }

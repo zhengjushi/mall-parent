@@ -47,4 +47,3 @@ public class BaseCategoryView extends BaseEntity {
 	private String category3Name;
 
 }
-

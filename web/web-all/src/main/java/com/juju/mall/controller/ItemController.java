@@ -21,7 +21,6 @@ public class ItemController {
     public String index(@PathVariable("skuId")String skuId, Model model){
 
         Map<String,Object> map = itemFeignClient.getItem(skuId);
-        System.out.println(map);
         model.addAllAttributes(map);
         return "item/index";
     }

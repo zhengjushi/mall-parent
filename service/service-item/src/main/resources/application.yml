@@ -5,10 +5,14 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.200.128:8848
-  datasource:
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.200.128:3306/gmall_product?useSSL=false
+  redis:
+    host: 192.168.200.128
+    port: 6379
+    database: 0
+#  datasource:
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://192.168.200.128:3306/gmall_product?useSSL=false
 server:
   port: 8400

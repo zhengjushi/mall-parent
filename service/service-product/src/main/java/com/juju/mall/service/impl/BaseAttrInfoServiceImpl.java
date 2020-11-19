@@ -3,6 +3,7 @@ package com.juju.mall.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.juju.mall.entity.BaseAttrInfo;
 import com.juju.mall.entity.BaseAttrValue;
+import com.juju.mall.list.SearchAttr;
 import com.juju.mall.mapper.BaseAttrInfoMapper;
 import com.juju.mall.service.BaseAttrInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -70,5 +71,11 @@ public class BaseAttrInfoServiceImpl extends ServiceImpl<BaseAttrInfoMapper, Bas
             baseAttrValue.setAttrId(id);
         }
         baseAttrValueService.saveBatch(attrValueList);
+    }
+
+    @Override
+    public List<SearchAttr> selectBaseAttrInfoListBySkuId(String skuId) {
+        List<SearchAttr> searchAttrs = baseMapper.selectBaseAttrInfoListBySkuId(skuId);
+        return searchAttrs;
     }
 }
